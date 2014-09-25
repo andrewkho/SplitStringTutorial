@@ -51,4 +51,41 @@ public class TestStringSplitter {
         
         assertEquals(text, reconstruction);
     }
+    
+    
+    
+    @Test
+    public void delimiterTest() {
+        String text = "this is a sentence";
+        String delim = " ";
+        String[] output = StringSplitter.splitString(text,delim);
+        
+        for (String s : output){
+            int idx = s.indexOf(delim);
+            if (idx == -1) {
+                continue;
+            } else {
+                fail();
+            }
+        }
+                
+    }
+    
+    @Test(expected=RuntimeException.class)
+    public void testException() {
+        String text = "this is a sentence";
+        String delim = ".";
+        String[] output = StringSplitter.splitString(text,delim);
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
